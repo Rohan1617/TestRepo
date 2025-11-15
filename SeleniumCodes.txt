@@ -1,0 +1,134 @@
+package test.com;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class AutomationtestingDay2 {
+
+    public static void main(String[] args) throws InterruptedException {
+        
+    
+    WebDriver dr= new ChromeDriver();
+    dr.get("https:www.tutorialspoint.com/selenium/practice/selenium_automation_practice.php");
+    dr.manage().window().fullscreen();
+    
+    WebElement fn= dr.findElement(By.id("name"));
+    fn.click();
+    fn.sendKeys("Rohan");
+    Thread.sleep(4000);
+    WebElement em= dr.findElement(By.id("email"));
+    em.click();
+    em.sendKeys("rohan12@gmail.com");
+    Thread.sleep(4000);
+    WebElement gn= dr.findElement(By.id("gender"));
+    gn.click();
+    
+    
+    
+    }
+    
+}
+=========================
+package MyTestNg;
+
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.AfterSuite;
+
+public class FirstTestNGClass {
+  @Test
+  public void f() {
+      System.out.println("i am in test cases");
+  }
+  @BeforeMethod
+  public void beforeMethod() {
+      System.out.println("i am in beforeMethod cases");
+  }
+
+  @AfterMethod
+  public void afterMethod() {
+      System.out.println("i am in afterMethod ");
+  }
+
+  @BeforeClass
+  public void beforeClass() {
+      System.out.println("iam in beforeClass");
+  }
+
+  @AfterClass
+  public void afterClass() {
+      System.out.println("i am in after class");
+  }
+
+  @BeforeTest
+  public void beforeTest() {
+      System.out.println("i am in before test");
+  }
+
+  @AfterTest
+  public void afterTest() {
+      System.out.println("i am in after test");
+  }
+
+  @BeforeSuite
+  public void beforeSuite() {
+      System.out.println("iam in beforeSuite");
+  }
+
+  @AfterSuite
+  public void afterSuite() {
+      System.out.println("i am in after suite");
+  }
+  @Test
+  public void ojjf() {
+      System.out.println("i am in test cases");
+  }
+
+}
+==================================
+package practice;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeTest;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+
+public class LoginPage {
+    WebDriver wb=new ChromeDriver();
+  @Test
+  public void f() throws InterruptedException {
+      Thread.sleep(2000);
+      WebElement w=wb.findElement(By.xpath("//input[@name='username']"));
+      WebElement w1=wb.findElement(By.xpath("//input[@name='password']"));
+      WebElement w2=wb.findElement(By.xpath("//button[@class='oxd-button oxd-button--medium oxd-button--main orangehrm-login-button']"));
+      w.click();
+      w.sendKeys("Admin");
+      w1.click();
+      w1.sendKeys("admin123");
+      w2.click();
+      
+  }
+  @BeforeTest
+  public void beforeTest() {
+      
+      wb.manage().window().maximize();
+      wb.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+  }
+
+  @AfterTest
+  public void afterTest() {
+      WebElement w3=wb.findElement(By.xpath("//i[@class='oxd-icon bi-caret-down-fill oxd-userdropdown-icon']"));
+      w3.click();
+      
+  }
+}
